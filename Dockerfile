@@ -105,6 +105,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN chown node:node /app
+RUN mkdir -p /data/.openclaw && chown -R node:node /data
+
 
 COPY --from=runtime-assets --chown=node:node /app/dist ./dist
 COPY --from=runtime-assets --chown=node:node /app/node_modules ./node_modules
