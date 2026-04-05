@@ -105,7 +105,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN chown node:node /app
-RUN mkdir -p /data/.openclaw/memory && chown -R node:node /data && chmod -R 777 /data
 
 
 
