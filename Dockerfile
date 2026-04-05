@@ -69,7 +69,7 @@ ENV OPENCLAW_PREFER_PNPM=1
 RUN pnpm ui:build
 
 FROM build AS runtime-assets
-RUN CI=true pnpm install --no-frozen-lockfile && pnpm prune --prod --force && \
+RUN CI=true pnpm install --no-frozen-lockfile && \
     find dist -type f \( -name '*.d.ts' -o -name '*.d.mts' -o -name '*.d.cts' -o -name '*.map' \) -delete
 
 FROM ${OPENCLAW_NODE_BOOKWORM_IMAGE} AS base-default
